@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Widget = styled.div`
 margin-top: 24px;
@@ -12,6 +12,7 @@ h1{
   line-height: 1;
   margin-bottom:0;
   color: ${({ theme }) => theme.colors.title};
+  font-family:'Pacifico', cursive; 
 }
 h2, h3 {
   font-size: 20px;
@@ -22,9 +23,9 @@ h2, h3 {
  }
  p{
   font-size: 16px;
-  font-weight: 400;
   line-height: 1;
   color: ${({ theme }) => theme.colors.text};
+  font-weight: 1,400 ;
  }
  `;
 
@@ -37,8 +38,8 @@ Widget.Header = styled.header`
  padding-bottom: 3px ;
 
  
- `
- Widget.Content = styled.div`
+ `;
+Widget.Content = styled.div`
  padding: 24px 32px 32px 32px ;
 
  & > *:first-child{

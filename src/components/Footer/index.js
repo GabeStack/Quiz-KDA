@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 // src/components/Footer/index.js
 const FooterWrapper = styled.footer`
@@ -16,6 +17,7 @@ const FooterWrapper = styled.footer`
     color: red;
     text-decoration: none;
     transition: .3s;
+    font-weight:1,300 ;
     &:hover,
     &:focus {
       opacity: .5;
@@ -33,16 +35,16 @@ export default function Footer(props) {
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <FooterWrapper {...props}>
-    
-        <img src="https://www.alura.com.br/assets/img/alura-logo-white.1570550707.svg" alt="Logo Alura" />
-      
+
+      <img src="https://www.alura.com.br/assets/img/alura-logo-white.1570550707.svg" alt="Logo Alura" />
+
       <p>
         Orgulhosamente criado durante
         {' '}
         a
         {' '}
 
-          <span>Imersão React da Alura</span>
+        <span>Imersão React da Alura</span>
 
         {' '}
         pelo
