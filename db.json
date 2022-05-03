@@ -4,15 +4,15 @@
     "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
     "questions": [
       {
-        "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
+        "image": "https://cdn.discordapp.com/attachments/952405079359619082/970926581033873418/75f02c55d9a8e514930e62ab3bd0ad28.gif",
         "title": "Que banda a Evelyn é fan ?",
         "description": "Vai você sabe:",
         "answer": 2,
         "alternatives": [
-          ".elemento",
-          "*elemento",
-          "#elemento",
-          "%elemento"
+          "True Damage",
+          "Nenhuma",
+          "Pentakill",
+          "DJ Sona"
         ]
       },
       {
