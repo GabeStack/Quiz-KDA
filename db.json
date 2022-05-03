@@ -5,8 +5,8 @@
     "questions": [
       {
         "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-        "title": "Como fazer um seletor por id via CSS?",
-        "description": "Essa é pra aquecer",
+        "title": "Que banda a Evelyn é fan ?",
+        "description": "Vai você sabe:",
         "answer": 2,
         "alternatives": [
           ".elemento",
