@@ -59,18 +59,18 @@ Widget.Content = styled.div`
 Widget.Topic = styled.a`
 outline:0;
 text-decoration:none;
-background-color:${({ theme })=> `${theme.colors.contrastText}20`} ;
-color:${({ theme })=> `${theme.colors.title}90`};
+background-color:${({ theme }) => `${theme.colors.contrastText}20`} ;
+color:${({ theme }) => `${theme.colors.title}90`};
 padding: 10px 40px;
 margin-bottom:8px;
 cursor: pointer;
-border-radius:${({theme}) => `${theme.borderRadius}`};
+border-radius:${({ theme }) => `${theme.borderRadius}`};
 transition:.3s;
 display:block;
 &:hover,
 &:focus {
   opacity:5;
-  background:${({ theme })=> `${theme.colors.contrastText}50`} ;
+  background:${({ theme }) => `${theme.colors.contrastText}50`} ;
 }
 
 `;
