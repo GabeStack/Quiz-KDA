@@ -11,7 +11,12 @@ import Button from '../src/components/Button';
 function QuestionWidget({
   questions, totalQuestions, questionIndex, onSubmit,
 }) {
+  const [selectAlternative, setSelectAlternative] = React.useState(undefined);
+  const [isQuestionsSubmited, setIsQuestionsSubmited] = React.useState(false);
   const questionId = `question__${questionIndex}`;
+  const isCorrect = selectAlternative === questions.answer;
+  const hasAlternativeSelected = selectAlternative !== undefined;
+  const [results, setResults] = React.useState([]);
   return (
     <Widget>
       <Widget.Header>
@@ -40,7 +45,11 @@ function QuestionWidget({
         <form
           onSubmit={(infosDoEvento) => {
             infosDoEvento.preventDefault();
-            onSubmit();
+            setIsQuestionsSubmited(true);
+            setTimeout(() => {
+              onSubmit();
+              setIsQuestionsSubmited(false);
+            }, 3 * 1000);
           }}
         >
           {questions.alternatives.map((alternatives, alternativeIndex) => {
@@ -55,6 +64,7 @@ function QuestionWidget({
 
                   id={alternativeId}
                   name={questionId}
+                  onChange={() => setSelectAlternative(alternativeIndex)}
                   type="radio"
                 />
                 {alternatives}
@@ -62,9 +72,11 @@ function QuestionWidget({
             );
           })}
 
-          <Button type="submit">
+          <Button type="submit" disabled={!hasAlternativeSelected}>
             Confirmar
           </Button>
+          {isQuestionsSubmited && isCorrect && <p>Você acertou!</p>}
+          {isQuestionsSubmited && !isCorrect && <p>Você errou!</p>}
         </form>
       </Widget.Content>
     </Widget>
@@ -95,7 +107,6 @@ const screenStates = {
 
 export default function QuizKda() {
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
-  console.log('perguntas quiz kda', db.questions);
   const totalQuestions = db.questions.length;
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const questionIndex = currentQuestion;

@@ -7,7 +7,7 @@
         "image": "https://cdn.discordapp.com/attachments/952405079359619082/970926581033873418/75f02c55d9a8e514930e62ab3bd0ad28.gif",
         "title": "Qual banda a Evelyn é fan ?",
         "description": "Vai você sabe:",
-        "answer": 0,
+        "answer": 2,
         "alternatives": [
           "True Damage",
           "Nenhuma",
@@ -19,7 +19,7 @@
         "image": "https://cdn.discordapp.com/attachments/952405079359619082/971219425913085982/8146a93b71f8997751c0d89ebb671ede.gif",
         "title": "Quem é a lider das K/DA ?",
         "description": "Ela é uma diva : )",
-        "answer": 1,
+        "answer": 0,
         "alternatives": [
            "Ahri",
            "Akali",
@@ -31,7 +31,7 @@
         "image": "https://cdn.discordapp.com/attachments/952405079359619082/971238331528658994/more-kda.gif",
         "title": "Qual signo da Ahri ?",
         "description": "Bem quente esse!",
-        "answer": 2,
+        "answer": 3,
         "alternatives": [
            "Aquário",
            "Áries",
@@ -42,7 +42,7 @@
         "image": "https://cdn.discordapp.com/attachments/952405079359619082/971245836627492884/HandySpiritedBobwhite-size_restricted.gif",
         "title": "Qual a comida favorita da Akali ?",
         "description": "hmm que delicia !",
-        "answer": 3,
+        "answer": 2,
         "alternatives": [
            "Ramyun Apimentado",
            "takoyaki",
