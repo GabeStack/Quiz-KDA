@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-multi-spaces */
