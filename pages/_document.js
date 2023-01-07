@@ -1,4 +1,5 @@
 import React from 'react';
+ /* eslint-disable rule-name */
 import Document from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 

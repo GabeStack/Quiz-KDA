@@ -1,3 +1,4 @@
+ /* eslint-disable rule-name */
 import React from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Head from 'next/head';
