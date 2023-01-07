@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-props-no-multi-spaces */
 import React from 'react';
 import db from '../db.json';
 import QuizContainer from '../src/components/QuizContainer';
