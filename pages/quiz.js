@@ -1,7 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/jsx-no-bind */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-props-no-multi-spaces */
 import React from 'react';
 import db from '../db.json';
 import QuizContainer from '../src/components/QuizContainer';
@@ -9,15 +5,16 @@ import QuizBackground from '../src/components/QuizBackground';
 import Widget from '../src/components/Widget';
 import Button from '../src/components/Button';
 
+
+
 function QuestionWidget({
-  questions, totalQuestions, questionIndex, onSubmit,
+  questions, totalQuestions, questionIndex, onSubmit,addResult,
 }) {
   const [selectAlternative, setSelectAlternative] = React.useState(undefined);
   const [isQuestionsSubmited, setIsQuestionsSubmited] = React.useState(false);
   const questionId = `question__${questionIndex}`;
   const isCorrect = selectAlternative === questions.answer;
   const hasAlternativeSelected = selectAlternative !== undefined;
-  const [results, setResults] = React.useState([]);
   return (
     <Widget>
       <Widget.Header>
@@ -48,8 +45,10 @@ function QuestionWidget({
             infosDoEvento.preventDefault();
             setIsQuestionsSubmited(true);
             setTimeout(() => {
+              addResult(isCorrect);
               onSubmit();
               setIsQuestionsSubmited(false);
+              setSelectAlternative(undefined);
             }, 3 * 1000);
           }}
         >
@@ -58,6 +57,7 @@ function QuestionWidget({
             return (
               <Widget.Topic
                 as="label"
+                key={alternativeId}
                 htmlFor={alternativeId}
               >
 
@@ -105,20 +105,54 @@ const screenStates = {
   RESULT: 'RESULT',
   LOADING: 'LOADING',
 };
-
 export default function QuizKda() {
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
   const totalQuestions = db.questions.length;
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const questionIndex = currentQuestion;
   const questions = db.questions[questionIndex];
-
+  const [results, setResults] = React.useState([]);
+  
+  function addResult(result) {
+    setResults([
+      ...results,
+      result,
+    ]);
+  }
+  
   React.useState(() => {
     setTimeout(() => {
       setScreenState(screenStates.QUIZ);
     }, 1 * 1000);
   }, []);
-
+  function ResultWidget({ results }){
+    return (
+      <Widget>
+        <Widget.Header
+          style={{ 'border-bottom': '1px dotted #FE43FD' }}
+        >
+          Tela de Resultados
+        </Widget.Header>
+  
+        <Widget.Content>
+          <p>Você acertou {' '} {results.reduce((somatoriaAtual, resultAtual)=>  {
+          const isAcerto = resultAtual === true;
+          if(isAcerto){
+            return somatoriaAtual + 1;
+          }
+          return somatoriaAtual;
+          }, 0)} perguntos</p>
+          <ul>
+            {results.map((result, index) => (
+                        <li key={`result ${index}`}>
+                        #0{index + 1} Resultado: {result === true ? 'Acertou' : 'Errou'}
+                      </li>
+            ))}
+          </ul>
+        </Widget.Content>
+      </Widget>
+    );
+  }
   function handleSubmitQuiz() {
     const nextQuestion = questionIndex + 1;
     if (nextQuestion < totalQuestions) {
@@ -136,10 +170,11 @@ export default function QuizKda() {
           questionIndex={questionIndex}
           totalQuestions={totalQuestions}
           onSubmit={handleSubmitQuiz}
+          addResult={addResult}
         />
         )}
         {screenState === screenStates.LOADING && <LoadingWidget />}
-        {screenState === screenStates.RESULT && <div>Você acertou  x questões </div>}
+        {screenState === screenStates.RESULT && <ResultWidget results ={results} /> } 
       </QuizContainer>
     </QuizBackground>
   );
